@@ -121,8 +121,12 @@ if (nextTick){
 						&&guiCam.unproject(new Vector3(point3D.getX()*20,point3D.getY()*20,0)).x<480
 						&&guiCam.unproject(new Vector3(point3D.getX()*20,point3D.getY()*20,0)).y<320
 						&&guiCam.unproject(new Vector3(point3D.getX()*20,point3D.getY()*20,0)).y>0){
-					batch.draw(TextureCenter.getTexture(displayComponent.getTexture(null)), point3D.getX()*20,point3D.getY()*20,20,20);
+					//越靠前当前层，越清楚
 
+
+					batch.setColor(1,1,1,1-((float)currentZ-point3D.getZ())/5);
+
+					batch.draw(TextureCenter.getTexture(displayComponent.getTexture(null)), point3D.getX()*20,point3D.getY()*20,20,20);
 				}
 
 			}
