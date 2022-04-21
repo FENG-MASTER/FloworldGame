@@ -1,7 +1,9 @@
 package com.fengmaster.game.base.world.gen;
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.util.RandomUtil;
 import com.fengmaster.game.base.obj.BaseGameComponent;
+import com.fengmaster.game.base.obj.Cobble;
 import com.fengmaster.game.base.obj.Grass;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.world.Point3D;
@@ -11,6 +13,7 @@ import com.fengmaster.game.base.world.node.WorldNode;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class PureWorldGenerator implements BaseWorldGenerator{
 
@@ -32,6 +35,17 @@ public class PureWorldGenerator implements BaseWorldGenerator{
                 }
                 map.get(x).get(y).put(0,grass);
                 grass.setWorldName(world.getName());
+
+                if (RandomUtil.getRandom().nextInt(10)>7){
+                    Cobble cobble = new Cobble();
+                    List<PhysicsComponent> physics2 = cobble.getComponent("physics", PhysicsComponent.class);
+                    if (CollectionUtil.isNotEmpty(physics2)){
+                        physics2.get(0).setCenter(new Point3D(x,y,1));
+                    }
+
+                    map.get(x).get(y).put(1,cobble);
+                    cobble.setWorldName(world.getName());
+                }
             }
         }
 

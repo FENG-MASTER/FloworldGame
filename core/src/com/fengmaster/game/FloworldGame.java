@@ -41,6 +41,10 @@ public class FloworldGame extends ApplicationAdapter {
 
 	private String worldName;
 
+	private int currentZ=0;
+
+	private int commandWaitTime=5;
+
 
 	@Override
 	public void create () {
@@ -52,6 +56,8 @@ public class FloworldGame extends ApplicationAdapter {
 
 		TextureCenter.addTexture("grass1",new Texture("obj/grass1.png"));
 		TextureCenter.addTexture("grass2",new Texture("obj/grass2.png"));
+		TextureCenter.addTexture("cobble2",new Texture("obj/cobble2.png"));
+		TextureCenter.addTexture("cobble1",new Texture("obj/cobble1.png"));
 		worldName="main";
 		Game.getInstance().getEventCenter().getWorldEventBus(worldName).register(this);
 
@@ -67,10 +73,37 @@ public class FloworldGame extends ApplicationAdapter {
 		batch.setProjectionMatrix(guiCam.combined);
 		batch.begin();
 
-		if (Gdx.input.isKeyPressed(Input.Keys.N)){
-			log.info("按下键盘N");
-			Game.getInstance().getWorld(worldName).tick();
+		if(commandWaitTime>0){
+			commandWaitTime--;
+		}else {
+			if (Gdx.input.isKeyPressed(Input.Keys.N)){
+				log.info("按下键盘N");
+				Game.getInstance().getWorld(worldName).tick();
+			}
 
+			if (Gdx.input.isKeyPressed(Input.Keys.COMMA)&&Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)){
+				log.info("按下键盘<");
+				currentZ--;
+				log.info("当前层数"+currentZ);
+
+				nextTick=true;
+			}
+
+			if (Gdx.input.isKeyPressed(Input.Keys.PERIOD)&&Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)){
+				log.info("按下键盘>");
+				currentZ++;
+				log.info("当前层数"+currentZ);
+				nextTick=true;
+
+			}
+
+			commandWaitTime=5;
+		}
+
+		if (currentZ<0){
+			currentZ=0;
+		}else if (currentZ>50){
+			currentZ=50;
 		}
 
 if (nextTick){
@@ -81,6 +114,9 @@ if (nextTick){
 			if (baseGameComponent instanceof DisplayComponent&&baseGameComponent.getWorldName().equals(worldName)){
 				DisplayComponent displayComponent= (DisplayComponent) baseGameComponent;
 				Point3D point3D = baseGameComponent.getParentGameObject().getComponent("physics", PhysicsComponent.class).get(0).getCenter();
+				if (point3D.getZ()>currentZ){
+					return;
+				}
 				if (guiCam.unproject(new Vector3(point3D.getX()*20,point3D.getY()*20,0)).x>0
 						&&guiCam.unproject(new Vector3(point3D.getX()*20,point3D.getY()*20,0)).x<480
 						&&guiCam.unproject(new Vector3(point3D.getX()*20,point3D.getY()*20,0)).y<320
