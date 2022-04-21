@@ -1,6 +1,5 @@
-package com.fengmaster.game.event;
+package com.fengmaster.game.base.event;
 
-import com.fengmaster.game.TimeCenter;
 import lombok.Data;
 
 @Data

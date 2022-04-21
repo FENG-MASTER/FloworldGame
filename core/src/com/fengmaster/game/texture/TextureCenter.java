@@ -1,4 +1,4 @@
-package com.fengmaster.game.base.texture;
+package com.fengmaster.game.texture;
 
 import com.badlogic.gdx.graphics.Texture;
 

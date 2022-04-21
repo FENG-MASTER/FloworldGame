@@ -1,12 +1,14 @@
-package com.fengmaster.game.base.obj;
+package com.fengmaster.game.base.obj.entity;
 
+import com.fengmaster.game.base.obj.BaseGameComponent;
+import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.obj.display.DisplayComponent;
 import com.fengmaster.game.base.obj.display.RandomDisplayComponent;
 
 /**
  * 石子
  */
-public class Cobble extends BaseGameComponent{
+public class Cobble extends BaseGameComponent {
 
     public Cobble(){
         PhysicsComponent physicsObject = new PhysicsComponent();

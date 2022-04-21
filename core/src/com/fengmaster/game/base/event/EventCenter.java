@@ -1,4 +1,4 @@
-package com.fengmaster.game.event;
+package com.fengmaster.game.base.event;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

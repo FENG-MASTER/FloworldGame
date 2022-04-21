@@ -7,15 +7,14 @@ import com.fengmaster.game.base.Game;
 import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.world.gen.BaseWorldGenerator;
 import com.fengmaster.game.base.world.node.WorldNode;
-import com.fengmaster.game.event.TickEvent;
-import com.fengmaster.game.event.WorldCreatedEvent;
+import com.fengmaster.game.base.event.TickEvent;
+import com.fengmaster.game.base.event.WorldCreatedEvent;
 import lombok.Getter;
 import lombok.extern.java.Log;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  * 世界对象

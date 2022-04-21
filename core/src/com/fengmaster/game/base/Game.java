@@ -3,11 +3,10 @@ package com.fengmaster.game.base;
 import com.badlogic.gdx.Gdx;
 import com.fengmaster.game.base.world.World;
 import com.fengmaster.game.base.world.gen.PureWorldGenerator;
-import com.fengmaster.game.event.EventCenter;
+import com.fengmaster.game.base.event.EventCenter;
 import lombok.Getter;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

@@ -1,4 +1,4 @@
-package com.fengmaster.game.event;
+package com.fengmaster.game.base.event;
 
 import com.fengmaster.game.base.world.World;
 

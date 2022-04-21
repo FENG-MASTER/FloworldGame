@@ -1,8 +1,7 @@
-package com.fengmaster.game.event;
+package com.fengmaster.game.base.event;
 
 import com.fengmaster.game.base.world.World;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 
 /**

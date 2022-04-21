@@ -3,8 +3,8 @@ package com.fengmaster.game.base.world.gen;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.fengmaster.game.base.obj.BaseGameComponent;
-import com.fengmaster.game.base.obj.Cobble;
-import com.fengmaster.game.base.obj.Grass;
+import com.fengmaster.game.base.obj.entity.Cobble;
+import com.fengmaster.game.base.obj.entity.Grass;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.world.Point3D;
 import com.fengmaster.game.base.world.World;
@@ -13,7 +13,6 @@ import com.fengmaster.game.base.world.node.WorldNode;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class PureWorldGenerator implements BaseWorldGenerator{
 
