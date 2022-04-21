@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class BaseGameComponent {
 
     @Getter
-    private String worldUUID;
+    private String worldName;
 
     /**
      * ID
@@ -72,13 +72,13 @@ public class BaseGameComponent {
         this.name = name;
     }
 
-    public void setWorldUUID(String worldUUID) {
-        this.worldUUID = worldUUID;
+    public void setWorldName(String worldName) {
+        this.worldName = worldName;
         //默认情况下，会将其他组件都设置成同一个世界ID
         this.components.entrySet().stream().flatMap((Function<Map.Entry<String, List<BaseGameComponent>>, Stream<BaseGameComponent>>) stringListEntry -> stringListEntry.getValue().stream()).forEach(new Consumer<BaseGameComponent>() {
             @Override
             public void accept(BaseGameComponent baseGameComponent) {
-                baseGameComponent.setWorldUUID(worldUUID);
+                baseGameComponent.setWorldName(worldName);
             }
         });
     }

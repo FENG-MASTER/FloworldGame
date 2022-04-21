@@ -22,8 +22,8 @@ public class EventCenter {
 
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void worldCreated(WorldCreatedEvent worldCreatedEvent) {
-        if(!worldBusMap.containsKey(worldCreatedEvent.getWorld().getUuid())){
-            worldBusMap.put(worldCreatedEvent.getWorld().getUuid(),EventBus.builder().logNoSubscriberMessages(false).build());
+        if(!worldBusMap.containsKey(worldCreatedEvent.getWorld().getName())){
+            worldBusMap.put(worldCreatedEvent.getWorld().getName(),EventBus.builder().logNoSubscriberMessages(false).build());
 
         }
     }

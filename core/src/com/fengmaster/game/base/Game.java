@@ -6,6 +6,11 @@ import com.fengmaster.game.base.world.gen.PureWorldGenerator;
 import com.fengmaster.game.event.EventCenter;
 import lombok.Getter;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class Game {
 
     private static  Game instance=new Game();
@@ -17,8 +22,7 @@ public class Game {
     @Getter
     private GameOption gameOption;
 
-    @Getter
-    private World world;
+    private Map<String,World> worldMap;
 
     @Getter
     private GameObjectCenter gameObjectCenter;
@@ -32,16 +36,25 @@ public class Game {
         Gdx.app.getPreferences("FloworldGame").putString("map.generatorType", PureWorldGenerator.class.getName());
         Gdx.app.getPreferences("FloworldGame").putString("map.params","");
 
-
-
     }
 
     public void init(){
         gameOption =new GameOption();
         eventCenter=new EventCenter();
+        worldMap=new ConcurrentHashMap<>();
 
         gameObjectCenter=new GameObjectCenter();
-        world=new World(new PureWorldGenerator());
+
+        World world=new World("main",new PureWorldGenerator());
+        worldMap.put(world.getName(),world);
+    }
+
+    public World getWorld(String wUuid){
+        return worldMap.get(wUuid);
+    }
+
+    public Collection<String> getWorldNames(){
+        return worldMap.keySet();
     }
 
 }

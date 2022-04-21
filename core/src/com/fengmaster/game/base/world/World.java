@@ -3,13 +3,14 @@ package com.fengmaster.game.base.world;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
 import com.fengmaster.game.TimeCenter;
+import com.fengmaster.game.base.Game;
 import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.world.gen.BaseWorldGenerator;
 import com.fengmaster.game.base.world.node.WorldNode;
+import com.fengmaster.game.event.TickEvent;
 import com.fengmaster.game.event.WorldCreatedEvent;
 import lombok.Getter;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ import java.util.UUID;
 public class World {
 
     @Getter
-    private String uuid= UUID.randomUUID().toString();
+    private String name ;
 
     private long length=50;
     private long width=50;
@@ -40,7 +41,8 @@ public class World {
     private Map<Integer,Map<Integer,Map<Integer, BaseGameComponent>>> gameObjectMap =new HashMap<>();
 
 
-    public World(BaseWorldGenerator worldGenerator){
+    public World(String name ,BaseWorldGenerator worldGenerator){
+        this.name=name;
         TimeInterval timer = DateUtil.timer();
         log.info("开始生成地图");
         timer.start();
@@ -61,6 +63,7 @@ public class World {
 
     public void tick(){
         timeCenter.next();
+        Game.getInstance().getEventCenter().getWorldEventBus(this.name).post(new TickEvent(timeCenter.getTime(),this,this));
     }
 
 }

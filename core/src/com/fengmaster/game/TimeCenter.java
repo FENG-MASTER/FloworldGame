@@ -1,5 +1,7 @@
 package com.fengmaster.game;
 
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -8,6 +10,7 @@ public class TimeCenter {
     /**
      * 从0开始，每1单位表示游戏中的1秒钟
      */
+    @Getter
     private long time;
 
     /**

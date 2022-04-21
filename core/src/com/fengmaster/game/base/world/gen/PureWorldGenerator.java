@@ -31,6 +31,7 @@ public class PureWorldGenerator implements BaseWorldGenerator{
                     physics.get(0).setCenter(new Point3D(x,y,0));
                 }
                 map.get(x).get(y).put(0,grass);
+                grass.setWorldName(world.getName());
             }
         }
 
