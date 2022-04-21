@@ -3,6 +3,7 @@ package com.fengmaster.game.base;
 import com.badlogic.gdx.Gdx;
 import com.fengmaster.game.base.world.World;
 import com.fengmaster.game.base.world.gen.PureWorldGenerator;
+import com.fengmaster.game.event.EventCenter;
 import lombok.Getter;
 
 public class Game {
@@ -22,6 +23,9 @@ public class Game {
     @Getter
     private GameObjectCenter gameObjectCenter;
 
+    @Getter
+    private EventCenter eventCenter;
+
 
     private Game(){
         //TODO:
@@ -34,9 +38,10 @@ public class Game {
 
     public void init(){
         gameOption =new GameOption();
+        eventCenter=new EventCenter();
+
         gameObjectCenter=new GameObjectCenter();
         world=new World(new PureWorldGenerator());
-
     }
 
 }
