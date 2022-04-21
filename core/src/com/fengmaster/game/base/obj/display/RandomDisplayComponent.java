@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class RandomDisplayComponent  extends DisplayComponent{
     @Override
-    public Texture getTexture(Object o) {
-        return textures.get(RandomUtil.randomInt(textures.size()-1));
+    public String getTexture(Object o) {
+        return textures.get(RandomUtil.randomInt(textures.size()));
     }
 }

@@ -12,8 +12,8 @@ public class Grass extends BaseGameComponent {
         physicsObject.setVolume(1);
         addComponent("physics",physicsObject);
         DisplayComponent displayComponent=new RandomDisplayComponent();
-        displayComponent.addTexture(new Texture("obj/grass1.png"));
-        displayComponent.addTexture(new Texture("obj/grass2.png"));
+        displayComponent.addTexture("grass1");
+        displayComponent.addTexture("grass2");
         addComponent("texture",displayComponent);
     }
 

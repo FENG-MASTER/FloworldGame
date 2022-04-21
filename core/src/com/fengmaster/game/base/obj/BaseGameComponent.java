@@ -41,6 +41,10 @@ public class BaseGameComponent {
         Game.getInstance().getGameObjectCenter().addObject(this);
     }
 
+    public void tick(long tick) {
+
+    }
+
 
     public void addComponent(String relationName, BaseGameComponent component){
         List<BaseGameComponent> list = components.getOrDefault(relationName, new ArrayList<BaseGameComponent>());
