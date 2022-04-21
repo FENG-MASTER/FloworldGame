@@ -15,8 +15,8 @@ public class EventCenter {
         EventBus.getDefault().register(this);
     }
 
-    public  EventBus getWorldEventBus(String wUUID) {
-        return worldBusMap.get(wUUID);
+    public  EventBus getWorldEventBus(String wName) {
+        return worldBusMap.get(wName);
     }
 
 

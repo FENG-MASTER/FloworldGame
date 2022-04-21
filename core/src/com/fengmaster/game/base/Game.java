@@ -49,8 +49,8 @@ public class Game {
         worldMap.put(world.getName(),world);
     }
 
-    public World getWorld(String wUuid){
-        return worldMap.get(wUuid);
+    public World getWorld(String name){
+        return worldMap.get(name);
     }
 
     public Collection<String> getWorldNames(){
