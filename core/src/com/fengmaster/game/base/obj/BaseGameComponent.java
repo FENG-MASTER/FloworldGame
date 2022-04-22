@@ -53,6 +53,10 @@ public class BaseGameComponent {
         component.setParentGameObject(this);
     }
 
+    public boolean containsComponent(String relationName){
+        return components.containsKey(relationName);
+    }
+
 
     public List<BaseGameComponent> getComponent(String relationName){
         return components.get(relationName);

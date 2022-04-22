@@ -98,7 +98,7 @@ project(":core") {
         api 'cn.hutool:hutool-all:5.8.0.M3'
         // https://mvnrepository.com/artifact/org.greenrobot/eventbus
         api 'org.greenrobot:eventbus-java:3.3.1'
-
+        api "io.reactivex.rxjava3:rxjava:3.1.4"
         api 'com.alibaba:fastjson:1.2.70'
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"

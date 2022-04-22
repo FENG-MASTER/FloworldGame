@@ -1,21 +1,22 @@
-package com.fengmaster.game.base.obj.entity;
+package com.fengmaster.game.base.obj.ability;
 
-import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.obj.display.DisplayComponent;
 import com.fengmaster.game.base.obj.display.RandomDisplayComponent;
 
 /**
- * 石子
+ * 火
  */
-public class Cobble extends PhysicsComponent {
+public class Fire extends PhysicsComponent {
 
-    public Cobble(){
-        this.setName("Cobble");
-        this.setMass(3000);
-        this.setVolume(1);
+    public Fire() {
+        //小火焰
+        this.setName("Fire");
+        this.setVolume(0.001);
         DisplayComponent displayComponent=new RandomDisplayComponent();
-        displayComponent.addTexture("cobble1");
+        displayComponent.addTexture("fire");
+        displayComponent.setAlpha(this.getVolume());
         addComponent("texture",displayComponent);
     }
+
 }

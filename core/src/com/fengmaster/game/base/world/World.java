@@ -14,6 +14,7 @@ import lombok.extern.java.Log;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,19 +26,20 @@ public class World {
     @Getter
     private String name ;
 
-    private long length=50;
-    private long width=50;
-    private long height=50;
+    private long length=10;
+    private long width=10;
+    private long height=10;
 
     private TimeCenter timeCenter;
 
     /**
-     * x,y,z地图节点
+     * z,x,y地图节点
      */
-    private Map<Integer,Map<Integer,Map<Integer, WorldNode>>> worldNodeMap =new HashMap<>();
+    private Map<Long,Map<Long,Map<Long, WorldNode>>> worldNodeMap =new HashMap<>();
 
+    //  z,x,y地图
     @Getter
-    private Map<Integer,Map<Integer,Map<Integer, BaseGameComponent>>> gameObjectMap =new HashMap<>();
+    private Map<Long,Map<Long,Map<Long, List<BaseGameComponent>>>> gameObjectMap =new HashMap<>();
 
 
     public World(String name ,BaseWorldGenerator worldGenerator){

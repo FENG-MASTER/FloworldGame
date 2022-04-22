@@ -1,21 +1,18 @@
 package com.fengmaster.game.base.obj.entity;
 
-import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.obj.display.DisplayComponent;
 import com.fengmaster.game.base.obj.display.RandomDisplayComponent;
 
-/**
- * 石子
- */
-public class Cobble extends PhysicsComponent {
+public class Soil extends PhysicsComponent {
 
-    public Cobble(){
-        this.setName("Cobble");
+
+    public Soil() {
+        this.setName("Soil");
         this.setMass(3000);
         this.setVolume(1);
         DisplayComponent displayComponent=new RandomDisplayComponent();
-        displayComponent.addTexture("cobble1");
+        displayComponent.addTexture("soil");
         addComponent("texture",displayComponent);
     }
 }

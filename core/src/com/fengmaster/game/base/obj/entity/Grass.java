@@ -1,21 +1,25 @@
 package com.fengmaster.game.base.obj.entity;
 
+import cn.hutool.core.util.RandomUtil;
 import com.badlogic.gdx.graphics.Texture;
 import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.obj.display.DisplayComponent;
 import com.fengmaster.game.base.obj.display.RandomDisplayComponent;
 
-public class Grass extends BaseGameComponent {
+public class Grass extends PhysicsComponent {
 
     public Grass(){
-        PhysicsComponent physicsObject = new PhysicsComponent();
-        physicsObject.setMass(11);
-        physicsObject.setVolume(1);
-        addComponent("physics",physicsObject);
+        this.setName("Grass");
+        this.setMass(3000);
+        this.setVolume(1);
         DisplayComponent displayComponent=new RandomDisplayComponent();
-        displayComponent.addTexture("grass1");
-        displayComponent.addTexture("grass2");
+        if (RandomUtil.getRandom().nextBoolean()){
+            displayComponent.addTexture("grass1");
+        }else {
+            displayComponent.addTexture("grass2");
+
+        }
         addComponent("texture",displayComponent);
     }
 

@@ -10,6 +10,9 @@ import lombok.Data;
 @AllArgsConstructor
 public  class WorldNode {
 
+    /**
+     * 温度
+     */
     private double temperature;
     private double humidity;
     private double light;
