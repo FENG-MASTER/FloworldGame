@@ -30,6 +30,7 @@ public class World {
     private long width=10;
     private long height=10;
 
+    @Getter
     private TimeCenter timeCenter;
 
     /**
@@ -65,6 +66,19 @@ public class World {
     public void tick(){
         timeCenter.next();
         Game.getInstance().getEventCenter().getWorldEventBus(this.name).post(new TickEvent(timeCenter.getTime(),this,this));
+    }
+
+
+    public List<BaseGameComponent> getWorldObject(long x, long y, long z){
+        return gameObjectMap.get(z).get(x).get(y);
+    }
+
+    public List<BaseGameComponent> getWorldObject(Point3D point3D){
+        return gameObjectMap.get(point3D.getZ()).get(point3D.getX()).get(point3D.getY());
+    }
+
+    public WorldNode getWorldNode(Point3D point3D){
+        return worldNodeMap.get(point3D.getZ()).get(point3D.getX()).get(point3D.getY());
     }
 
 }

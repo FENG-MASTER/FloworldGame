@@ -85,5 +85,22 @@ public class BaseGameComponent {
                 baseGameComponent.setWorldName(worldName);
             }
         });
+
+        if (Game.getInstance().getEventCenter().getWorldEventBus(worldName).isRegistered(this)){
+            Game.getInstance().getEventCenter().getWorldEventBus(worldName).unregister(this);
+        }
+        if (needRegisterWorldListener()){
+            Game.getInstance().getEventCenter().getWorldEventBus(worldName).register(this);
+        }
+
+
+    }
+
+    public boolean needRegisterWorldListener(){
+        return false;
+    }
+
+    public void destroy(){
+
     }
 }

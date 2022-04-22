@@ -2,6 +2,7 @@ package com.fengmaster.game.base.obj.entity;
 
 import cn.hutool.core.util.RandomUtil;
 import com.badlogic.gdx.graphics.Texture;
+import com.fengmaster.game.base.constant.AttributeKeyEnum;
 import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.obj.display.DisplayComponent;
@@ -20,7 +21,7 @@ public class Grass extends PhysicsComponent {
             displayComponent.addTexture("grass2");
 
         }
-        addComponent("texture",displayComponent);
+        addComponent(AttributeKeyEnum.TEXTURE.name(),displayComponent);
     }
 
 

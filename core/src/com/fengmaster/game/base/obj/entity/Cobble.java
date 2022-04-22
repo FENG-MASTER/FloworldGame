@@ -1,5 +1,6 @@
 package com.fengmaster.game.base.obj.entity;
 
+import com.fengmaster.game.base.constant.AttributeKeyEnum;
 import com.fengmaster.game.base.obj.BaseGameComponent;
 import com.fengmaster.game.base.obj.PhysicsComponent;
 import com.fengmaster.game.base.obj.display.DisplayComponent;
@@ -16,6 +17,6 @@ public class Cobble extends PhysicsComponent {
         this.setVolume(1);
         DisplayComponent displayComponent=new RandomDisplayComponent();
         displayComponent.addTexture("cobble1");
-        addComponent("texture",displayComponent);
+        addComponent(AttributeKeyEnum.TEXTURE.name(),displayComponent);
     }
 }
